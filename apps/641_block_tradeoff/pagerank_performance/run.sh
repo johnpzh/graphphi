@@ -6,8 +6,8 @@ echo "+------------------------------------------------+"
 max=0
 index=0
 for ((i = 8; i <= 8192; i *= 2)); do
-#	numactl -m 0 ./pagerank ${data_file} 4096 ${i}
-	./pagerank /data/zpeng/pokec/soc-pokec 8192 128
+	numactl -m 0 ./pagerank ${data_file} 4096 ${i}
+#	./pagerank /data/zpeng/pokec/soc-pokec 8192 128
 	source mean.txt
 	v[index]=$MEAN
 	((index++))

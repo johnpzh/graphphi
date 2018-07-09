@@ -543,7 +543,7 @@ int main(int argc, char *argv[])
 	SIZE_BUFFER_MAX = 256;
 	int k_set = 10;
 
-	for (int cz = 0; cz < 5; ++cz) {
+	for (int cz = 0; cz < 1; ++cz) {
 	for (unsigned i = 0; i < run_count; ++i) {
 		NUM_THREADS = (unsigned) pow(2, i);
 		bot_best_perform.reset();
