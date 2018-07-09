@@ -1,1 +1,1 @@
-# graphphi
+# GraphPhi
