@@ -542,6 +542,7 @@ int main(int argc, char *argv[])
 	//SIZE_BUFFER_MAX = 512;
 	SIZE_BUFFER_MAX = 256;
 	int k_set = 10;
+	double results[7];
 
 	for (int cz = 0; cz < 1; ++cz) {
 	for (unsigned i = 0; i < run_count; ++i) {
@@ -572,6 +573,7 @@ int main(int argc, char *argv[])
 			graph_component);
 		}
 		bot_best_perform.print_average(NUM_THREADS);
+		results[i] = bot_best_perform.get_mean();
 
 	}
 
@@ -580,7 +582,11 @@ int main(int argc, char *argv[])
 	print(graph_component);
 #endif
 	print_benchmark_end("cc");
-
+	printf("| Speed up over 1-thread:\n");
+	for (int i = 0; i < 7; ++i) {
+		printf("%d %f\n", (int) pow(2, i), results[0]/results[i]);
+	}
+	printf("+------------------------------------------------+\n");
 	// Free memory
 	free(graph_heads);
 	free(graph_ends);

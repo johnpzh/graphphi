@@ -575,6 +575,8 @@ void input(char filename[])
 	//SIZE_BUFFER_MAX = 400;
 	//printf("tile_size: %u\n", TILE_WIDTH);//test
 	//printf("stripe_length: %u\n", ROW_STEP);
+	bot_best_perform.reset();
+	double results[7];
 	int k_set = 10;
 
 	for (unsigned i = 0; i < bound_i; ++i) {
@@ -602,12 +604,19 @@ void input(char filename[])
 
 		}
 		bot_best_perform.print_average(NUM_THREADS);
+		results[i] = bot_best_perform.get_mean();
 
 	}
 
 #ifdef ONEDEBUG
 	//print(rank);
 #endif
+	print_benchmark_end("pagerank");
+	printf("| Speed up over 1-thread:\n");
+	for (int i = 0; i < 7; ++i) {
+		printf("%d %f\n", (int) pow(2, i), results[0]/results[i]);
+	}
+	printf("+------------------------------------------------+\n");
 	// Free memory
 	_mm_free(graph_heads);
 	_mm_free(graph_tails);
@@ -633,6 +642,6 @@ int main(int argc, char *argv[])
 	}
 	print_benchmark_head("pagerank", filename);
 	input(filename);
-	print_benchmark_end("pagerank");
+
 	return 0;
 }

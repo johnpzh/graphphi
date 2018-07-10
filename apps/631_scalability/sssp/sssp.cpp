@@ -1471,6 +1471,7 @@ int main(int argc, char *argv[])
 	T_RATIO = 20;
 	WORK_LOAD = 30;
 	SIZE_BUFFER_MAX = 512;
+	double results[7];
 	int k_set = 10;
 
 	for (unsigned i = 0; i < run_count; ++i) {
@@ -1501,10 +1502,16 @@ int main(int argc, char *argv[])
 
 		}
 		bot_best_perform.print_average(NUM_THREADS);
+		results[i] = bot_best_perform.get_mean();
 
 	}
 
 	print_benchmark_end("sssp");
+	printf("| Speed up over 1-thread:\n");
+	for (int i = 0; i < 7; ++i) {
+		printf("%d %f\n", (int) pow(2, i), results[0]/results[i]);
+	}
+	printf("+------------------------------------------------+\n");
 	// Free memory
 	free(graph_heads);
 	free(graph_tails);

@@ -923,7 +923,9 @@ void sssp_weighted(
 	}
 
 	double end_time = omp_get_wtime();
-	printf("%u %lf\n", NUM_THREADS, end_time - start_time);
+	double run_time;
+	printf("%u %lf\n", NUM_THREADS, run_time = end_time - start_time);
+	bot_best_perform.record(run_time, NUM_THREADS);
 
 	free(dists);
 	//free(graph_active);

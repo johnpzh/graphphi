@@ -997,6 +997,7 @@ int main(int argc, char *argv[])
 	T_RATIO = 20;
 	SIZE_BUFFER_MAX = 800;
 	CHUNK_SIZE = 2048;
+	double results[7];
 	int k_set = 10;
 
 	// MIS
@@ -1016,10 +1017,15 @@ int main(int argc, char *argv[])
 		//// Re-initializing
 		}
 		bot_best_perform.print_average(NUM_THREADS);
+		results[i] = bot_best_perform.get_mean();
 
 	}
 	print_benchmark_end("mis");
-
+	printf("| Speed up over 1-thread:\n");
+	for (int i = 0; i < 7; ++i) {
+		printf("%d %f\n", (int) pow(2, i), results[0]/results[i]);
+	}
+	printf("+------------------------------------------------+\n");
 
 	// Free memory
 	free(graph_heads);

@@ -1173,6 +1173,7 @@ int main( int argc, char** argv)
 	CHUNK_SIZE = 2048;
 	//printf("tile_size: %u\n", TILE_WIDTH);
 	//printf("stripe_length: %u\n", ROW_STEP);
+	double results[7];
 	int k_set = 10;
 	for (unsigned i = 0; i < run_count; ++i) {
 		NUM_THREADS = (unsigned) pow(2, i);
@@ -1195,9 +1196,15 @@ int main( int argc, char** argv)
 #endif
 		}
 		bot_best_perform.print_average(NUM_THREADS);
+		results[i] = bot_best_perform.get_mean();
 
 	}
 	print_benchmark_end("bfs");
+	printf("| Speed up over 1-thread:\n");
+	for (int i = 0; i < 7; ++i) {
+		printf("%d %f\n", (int) pow(2, i), results[0]/results[i]);
+	}
+	printf("+------------------------------------------------+\n");
 
 	// cleanup memory
 	free( graph_heads);
