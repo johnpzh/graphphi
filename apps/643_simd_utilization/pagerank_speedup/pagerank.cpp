@@ -1053,6 +1053,7 @@ void input(char filename[])
 	//printf("stripe_length: %u\n", ROW_STEP);
 	WithOutMerge_pagerank wom;
 	WithMerge_pagerank wm;
+	//for (unsigned cz = 0; cz < 10; ++cz) {
 	for (unsigned i = 6; i < bound_i; ++i) {
 		NUM_THREADS = (unsigned) pow(2, i);
 		// w/o Merge
@@ -1102,6 +1103,7 @@ void input(char filename[])
 
 		printf("Merge Speedup over w/o Merge: %f\n", wom_mean/wm_mean);
 	}
+	//}
 
 #ifdef ONEDEBUG
 	//print(rank);
