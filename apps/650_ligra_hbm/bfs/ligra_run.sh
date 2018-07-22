@@ -47,22 +47,22 @@ function execute {
 data=/data/zpeng/pokec/soc-pokec
 execute $data
 
-# LiveJournal
-data=/data/zpeng/livejournal/livejournal 
-execute $data
-
-# RMAT24
-data=/data/zpeng/rmat24/rmat24
-execute $data
-
-# RMAT27
-data=/data/zpeng/rmat27/rmat27
-execute $data
-
-# Twitter
-data=/data/zpeng/twt/out.twitter
-execute $data
-
-# Friendster
-data=/data/zpeng/friendster/friendster
-execute $data
+## LiveJournal
+#data=/data/zpeng/livejournal/livejournal 
+#execute $data
+#
+## RMAT24
+#data=/data/zpeng/rmat24/rmat24
+#execute $data
+#
+## RMAT27
+#data=/data/zpeng/rmat27/rmat27
+#execute $data
+#
+## Twitter
+#data=/data/zpeng/twt/out.twitter
+#execute $data
+#
+## Friendster
+#data=/data/zpeng/friendster/friendster
+#execute $data

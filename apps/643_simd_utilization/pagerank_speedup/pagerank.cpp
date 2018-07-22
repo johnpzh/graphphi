@@ -1042,7 +1042,7 @@ void input(char filename[])
 #ifdef ONEDEBUG
 	unsigned bound_i = 7;
 #else
-	unsigned bound_i = 7;
+	unsigned bound_i = 9;
 #endif
 	// PageRank
 	CHUNK_SIZE = 1;
@@ -1054,7 +1054,7 @@ void input(char filename[])
 	WithOutMerge_pagerank wom;
 	WithMerge_pagerank wm;
 	//for (unsigned cz = 0; cz < 10; ++cz) {
-	for (unsigned i = 6; i < bound_i; ++i) {
+	for (unsigned i = 8; i < bound_i; ++i) {
 		NUM_THREADS = (unsigned) pow(2, i);
 		// w/o Merge
 		puts("w/o Merge:");

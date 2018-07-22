@@ -1834,7 +1834,7 @@ int main( int argc, char** argv)
 	printf("Input finished: %s\n", input_f);
 	unsigned run_count = 9;
 #else
-	unsigned run_count = 7;
+	unsigned run_count = 9;
 #endif
 	// BFS
 	SIZE_BUFFER_MAX = 1024;
@@ -1847,7 +1847,7 @@ int main( int argc, char** argv)
 	int k_set = 10;
 	Serial_bfs serial;
 	Simd_bfs simd;
-	for (unsigned i = 6; i < run_count; ++i) {
+	for (unsigned i = 8; i < run_count; ++i) {
 			NUM_THREADS = (unsigned) pow(2, i);
 			// Serial
 			printf("non-SIMD:\n");
